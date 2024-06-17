@@ -1,0 +1,24 @@
+.bg-light {
+	background-color: #f8f9fa !important; /* Світло-сірий фон */
+}
+
+.font-weight-bold {
+	font-weight: bold !important;
+}
+
+.font-italic {
+	font-style: italic !important;
+}
+
+.list-unstyled {
+	padding-left: 0;
+	list-style: none;
+}
+
+	.list-unstyled li::before {
+		content: ">"; /* Спеціальний символ для маркера списку */
+		color: #212529;
+		display: inline-block;
+		width: 1em;
+		margin-left: -1em;
+	}
