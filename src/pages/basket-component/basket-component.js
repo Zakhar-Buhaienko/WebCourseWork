@@ -25,7 +25,7 @@ const BasketComponent = (props) => {
                                         className="d-block w-100"
                                         src={`../../${item.imgurl}`}
                                         alt={`Slide ${index + 1}`}
-                                        style={{ maxHeight: '80vh', objectFit: 'cover' }}
+                                        style={{ maxHeight: '80vh', objectFit: 'fill' }}
                                     />
                                     <Carousel.Caption>
                                         <h3 style={{ color: '#333', backgroundColor: 'white', padding: '10px', borderRadius: '5px' }}>{index + 1}# {item.title}</h3>
@@ -60,17 +60,17 @@ const BasketComponent = (props) => {
         );
     };
 
-    // Функція для перевірки, чи є товари у корзині
+    // Р¤СѓРЅРєС†С–СЏ РґР»СЏ РїРµСЂРµРІС–СЂРєРё, С‡Рё С” С‚РѕРІР°СЂРё Сѓ РєРѕСЂР·РёРЅС–
     const checkBasketItems = () => {
         const hasItems = props.itemsList.some(item => storedDataCounters[item.id - 1] > 0);
         setHasItemsInBasket(hasItems);
     };
 
-    // Відслідковування змін у localStorage
+    // Р’С–РґСЃР»С–РґРєРѕРІСѓРІР°РЅРЅСЏ Р·РјС–РЅ Сѓ localStorage
     useEffect(() => {
         window.addEventListener('storage', checkBasketItems);
 
-        // Перевіряємо стан під час першого завантаження компонента
+        // РџРµСЂРµРІС–СЂСЏС”РјРѕ СЃС‚Р°РЅ РїС–Рґ С‡Р°СЃ РїРµСЂС€РѕРіРѕ Р·Р°РІР°РЅС‚Р°Р¶РµРЅРЅСЏ РєРѕРјРїРѕРЅРµРЅС‚Р°
         checkBasketItems();
 
         return () => {
@@ -91,7 +91,7 @@ const BasketComponent = (props) => {
                         })}
                     </div>
                 </section>
-                {/* Відображаємо кнопку тільки якщо є товари у корзині */}
+                {/* Р’С–РґРѕР±СЂР°Р¶Р°С”РјРѕ РєРЅРѕРїРєСѓ С‚С–Р»СЊРєРё СЏРєС‰Рѕ С” С‚РѕРІР°СЂРё Сѓ РєРѕСЂР·РёРЅС– */}
                 {hasItemsInBasket && (
                     <div className="row justify-content-end mt-4">
                         <div className="col-auto">
